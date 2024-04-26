@@ -19,8 +19,8 @@ const AuthProvider = ({ children }) => {
   const [alreadyLogin, setAlreadyLogin] = useState(false);
   const [alreadyUpdate, setAlreadyUpdate] = useState(false);
   const [textDot, setTextDot] = useState('');
-  // const apiURL = `http://localhost:5000`;
-  const apiURL = import.meta.env.VITE_API_VERCEL_URL;
+  const apiURL = `http://localhost:5000`;
+  // const apiURL = import.meta.env.VITE_API_VERCEL_URL;
 
   const womanLottie = () => {
     const options = {

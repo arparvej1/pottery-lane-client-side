@@ -24,7 +24,9 @@ const Navbar = () => {
     }
     {
       user && <>
-        <li><NavLink to='/contact'>Contact</NavLink></li>
+        <li><NavLink to='/all-art-craft'>All Art & Craft Items</NavLink></li>
+        <li><NavLink to='/add-art-craft'>Add Art & Craft</NavLink></li>
+        <li><NavLink to='/my-art-craft'>My Art & Craft List</NavLink></li>
       </>
     }
     {/* <li><NavLink to='/about'>About</NavLink></li> */}
