@@ -15,7 +15,7 @@ const Navbar = () => {
   }
   const navLinks = <>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/blogs'>Blogs</NavLink></li>
+    {/* <li><NavLink to='/blogs'>Blogs</NavLink></li> */}
     {
       !user && <>
         <li><NavLink to='/login'>Login</NavLink></li>
@@ -27,7 +27,7 @@ const Navbar = () => {
         <li><NavLink to='/contact'>Contact</NavLink></li>
       </>
     }
-    <li><NavLink to='/about'>About</NavLink></li>
+    {/* <li><NavLink to='/about'>About</NavLink></li> */}
   </>
   const pNavLinks = <>
     {
