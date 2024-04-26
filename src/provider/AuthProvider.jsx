@@ -1,6 +1,6 @@
 import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import auth from "../firebase/firebase.config";
+import auth from "../firebase/firebase.config.js";
 import PropTypes from 'prop-types';
 import { toast } from "react-toastify";
 import { useLottie } from "lottie-react";
@@ -27,9 +27,9 @@ const AuthProvider = ({ children }) => {
       animationData: womanLottieAnimation,
       loop: true
     };
-  
+
     const { View } = useLottie(options);
-  
+
     return <>{View}</>;
   };
 
