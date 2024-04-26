@@ -3,6 +3,8 @@ import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 import PropTypes from 'prop-types';
 import { toast } from "react-toastify";
+import { useLottie } from "lottie-react";
+import womanLottieAnimation from "../lottie/woman-lottie.json";
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
@@ -17,6 +19,17 @@ const AuthProvider = ({ children }) => {
   const [alreadyLogin, setAlreadyLogin] = useState(false);
   const [alreadyUpdate, setAlreadyUpdate] = useState(false);
   const [textDot, setTextDot] = useState('');
+
+  const womanLottie = () => {
+    const options = {
+      animationData: womanLottieAnimation,
+      loop: true
+    };
+  
+    const { View } = useLottie(options);
+  
+    return <>{View}</>;
+  };
 
   const loginCheck = () => {
     if (alreadyLogin) {
@@ -102,7 +115,8 @@ const AuthProvider = ({ children }) => {
     signInWithGithub,
     logOut,
     textDot,
-    setTextDot
+    setTextDot,
+    womanLottie
   }
 
   return (
