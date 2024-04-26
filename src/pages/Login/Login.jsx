@@ -100,7 +100,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title> Login | InnSight </title>
+        <title> Login | PotteryLane </title>
       </Helmet>
 
       <div className='flex max-w-7xl mx-auto mt-8'>

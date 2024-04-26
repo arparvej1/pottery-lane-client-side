@@ -13,7 +13,7 @@ import { VscEye, VscEyeClosed } from 'react-icons/vsc';
 
 
 const Register = () => {
-  const { user, createUser,  updateUserInfo, setAvatarIcon, setLoading, alreadyRegister, setAlreadyRegister, logOut, textDot, setTextDot, womanLottie } = useContext(AuthContext);
+  const { user, createUser, updateUserInfo, setAvatarIcon, setLoading, alreadyRegister, setAlreadyRegister, logOut, textDot, setTextDot, womanLottie, apiURL } = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordMsg, setPasswordMsg] = useState('');
   const location = useLocation();
@@ -29,6 +29,7 @@ const Register = () => {
     const photo_url = e.target.photo_url.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const newRegister = { name, photo_url, email, password };
 
     // password validation checking
     if (password.length >= 6) {
@@ -57,6 +58,19 @@ const Register = () => {
         setLoading(true);
         setAlreadyRegister(true);
         logOut();
+        // --------------
+        fetch(`${apiURL}/users`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(newRegister)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+          })
+        // --------------
         updateUserInfo(result.user, name, photo_url)
           .then(() => {
             setAvatarIcon(true);

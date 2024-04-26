@@ -19,6 +19,8 @@ const AuthProvider = ({ children }) => {
   const [alreadyLogin, setAlreadyLogin] = useState(false);
   const [alreadyUpdate, setAlreadyUpdate] = useState(false);
   const [textDot, setTextDot] = useState('');
+  const apiURL = `http://localhost:5000`;
+  // const apiURL = `http://localhost:5000`;
 
   const womanLottie = () => {
     const options = {
@@ -116,7 +118,8 @@ const AuthProvider = ({ children }) => {
     logOut,
     textDot,
     setTextDot,
-    womanLottie
+    womanLottie,
+    apiURL
   }
 
   return (
