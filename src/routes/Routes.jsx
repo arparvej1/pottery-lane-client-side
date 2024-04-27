@@ -11,6 +11,7 @@ import MyArtCraftList from "../pages/AllCrafts/MyArtCraft/MyArtCraftList";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import Profile from "../pages/Profile/Profile";
 import UpdateProfile from "../pages/Profile/UpdateProfile";
+import SecondRoot from "../layouts/SecondRoot";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
-      },
+      }
+    ]
+  },
+  {
+    element: <SecondRoot></SecondRoot>,
+    children: [
       {
         path: '/register',
         element: <Register></Register>
@@ -50,7 +56,7 @@ const router = createBrowserRouter([
         element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>
       }
     ]
-  },
+  }
 ]);
 
 export default router;

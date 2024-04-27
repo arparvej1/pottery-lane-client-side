@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGithub, FaTwitter } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,7 +13,7 @@ import { MdMailOutline } from 'react-icons/md';
 
 
 const Login = () => {
-  const { user, signInUser, signInWithGoogle, signInWithTwitter, signInWithGithub, registerCheck, setAlreadyLogin, textDot, setTextDot, womanLottie } = useContext(AuthContext);
+  const { user, signInUser, signInWithGoogle, signInWithGithub, registerCheck, setAlreadyLogin, textDot, setTextDot, womanLottie } = useContext(AuthContext);
   const navigate = useNavigate();
   const [loginFailedMsg, setLoginFailedMsg] = useState('');
   const location = useLocation();
@@ -64,19 +64,7 @@ const Login = () => {
   const handleLoginWithGoogle = () => {
     signInWithGoogle()
       .then(result => {
-        console.log(result.user);
-        setAlreadyLogin(true);
-        navigate(location?.state ? location.state : '/');
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
-  const handleLoginWithTwitter = () => {
-    signInWithTwitter()
-      .then(result => {
-        console.log(result.user);
+        console.log(result.user.uid);
         setAlreadyLogin(true);
         navigate(location?.state ? location.state : '/');
       })
@@ -162,15 +150,6 @@ const Login = () => {
                 >
                   <FaGithub className="text-2xl" />
                   Github
-                </button>
-              </div>
-              <div>
-                <button
-                  onClick={handleLoginWithTwitter}
-                  className="flex gap-2 btn border border-gray-200 bg-white"
-                >
-                  <FaTwitter className="text-2xl text-[#1DA1F2]" />
-                  Twitter
                 </button>
               </div>
             </div>

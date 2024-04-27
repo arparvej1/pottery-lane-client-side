@@ -70,7 +70,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-xl">
-          {navLinks} {pNavLinks}
+          {navLinks}
         </ul>
       </div>
       <div className="navbar-end">
@@ -101,9 +101,9 @@ const Navbar = () => {
               </div>
             </Link>
         }
-        <div>
+        <div className='hidden md:block'>
           {
-            user ? <span onClick={handleLogOut} className='ml-2 btn md:text-lg'>LogOut <FaSignOutAlt className='hidden md:block' /></span> : <Link className='btn md:text-lg' to='/login'>Login</Link>
+            user ? <span onClick={handleLogOut} className='ml-2 btn md:text-lg'>LogOut <FaSignOutAlt /></span> : <Link className='btn md:text-lg' to='/login'>Login</Link>
           }
         </div>
         {/* --------- theme start -------- */}

@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config.js";
 import PropTypes from 'prop-types';
@@ -9,7 +9,6 @@ import womanLottieAnimation from "../lottie/woman-lottie.json";
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
-const twitterProvider = new TwitterAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -70,12 +69,6 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   }
 
-  const signInWithTwitter = () => {
-    setLoading(true);
-    setAvatarIcon(false);
-    return signInWithPopup(auth, twitterProvider);
-  }
-
   const signInWithGithub = () => {
     setLoading(true);
     setAvatarIcon(false);
@@ -113,7 +106,6 @@ const AuthProvider = ({ children }) => {
     updateUserInfo,
     signInUser,
     signInWithGoogle,
-    signInWithTwitter,
     signInWithGithub,
     logOut,
     textDot,
