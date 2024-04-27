@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const { apiURL } = useContext(AuthContext);
@@ -16,6 +17,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title> Home | PotteryLane </title>
+      </Helmet>
       <h3>Hello Client Side</h3>
       <p>User: {users.length}</p>
     </>

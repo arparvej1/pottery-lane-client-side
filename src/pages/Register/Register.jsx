@@ -109,8 +109,8 @@ const Register = () => {
         <title> Register | PotteryLane </title>
       </Helmet>
 
-      <div className='flex max-w-7xl mx-auto mt-8'>
-        <div>
+      <div className='flex flex-col md:flex-row max-w-7xl mx-auto mt-8'>
+        <div className='hidden md:block'>
           {womanLottie()}
         </div>
         {/* ------ */}
@@ -144,7 +144,7 @@ const Register = () => {
               <span>Password:</span>
               <label className="flex items-center input input-bordered gap-3" htmlFor="email">
                 <GoLock />
-                <div className="flex justify-between items-center w-full bg-white">
+                <div className="flex justify-between items-center w-full bg-transparent">
                   <input type={passwordShow ? 'text' : 'password'} name='password' placeholder="Password" className="w-full" required /><span onClick={handlePasswordShow}>{passwordShow ? <VscEye /> : <VscEyeClosed />}</span>
                 </div>
               </label>
