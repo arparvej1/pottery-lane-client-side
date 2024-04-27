@@ -96,7 +96,7 @@ const Login = () => {
           {womanLottie()}
         </div>
         {/* ------ */}
-        <div className='md:w-2/3 lg:w-2/5 rounded-2xl bg-gray-100 p-5 md:p-10 md:mx-auto'>
+        <div className='md:w-2/3 lg:w-2/5 rounded-2xl bg-base-200 p-5 md:p-10 md:mx-auto'>
           <h3 className="text-3xl font-semibold mb-6 text-black text-center">
             Login Now!
           </h3>
