@@ -41,6 +41,7 @@ const AddCraftItems = () => {
             confirmButtonText: 'Okay'
           })
         }
+        form.reset();
       })
     // --------- send server end -----
   }
