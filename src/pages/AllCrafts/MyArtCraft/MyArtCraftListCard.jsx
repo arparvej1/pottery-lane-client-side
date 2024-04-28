@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
 import Swal from "sweetalert2";
+import { Link } from 'react-router-dom';
 
 const MyArtCraftListCard = ({ item, myItems, setMyItems }) => {
   const { _id, itemName, photo, price, rating, stockStatus, customization } = item;
@@ -55,7 +56,7 @@ const MyArtCraftListCard = ({ item, myItems, setMyItems }) => {
           <p>Customization: {customization}</p>
         </div>
         <div className='md:col-span-1 flex flex-col gap-5'>
-          <button className='btn bg-accent text-accent-content'>Update</button>
+          <Link to={`/update-item/${_id}`} className='btn bg-accent text-accent-content'>Update</Link>
           <button onClick={() => handleDelete(_id)} className='btn bg-secondary text-secondary-content'>Delete</button>
         </div>
       </div>

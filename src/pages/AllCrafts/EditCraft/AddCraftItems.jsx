@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const AddCraftItems = () => {
   const { user, apiURL } = useContext(AuthContext);
@@ -31,8 +32,15 @@ const AddCraftItems = () => {
     })
       .then(res => res.json())
       .then(data => {
-        toast.success('Successfully Add Item!');
         console.log(data);
+        if (data.acknowledged) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Successfully Add Item!',
+            icon: 'success',
+            confirmButtonText: 'Okay'
+          })
+        }
       })
     // --------- send server end -----
   }

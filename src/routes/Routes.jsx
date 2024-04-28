@@ -15,6 +15,9 @@ import SecondRoot from "../layouts/SecondRoot";
 import ArtCraftItemsDetails from "../pages/AllCrafts/AllArtCraftItems/ArtCraftItemsDetails";
 import UpdateCraftItems from "../pages/AllCrafts/EditCraft/UpdateCraftItems";
 
+// const myApiURL = import.meta.env.VITE_VERCEL_API;
+const myApiURL = `http://localhost:5000`;
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,22 +47,22 @@ const router = createBrowserRouter([
       {
         path: '/art-craft/:itemId',
         element: <PrivateRoutes><ArtCraftItemsDetails></ArtCraftItemsDetails></PrivateRoutes>,
-        // loader: () => fetch(`https://assignment-10-server-side-olive.vercel.app/art-craft`)
-        loader: () => fetch('http://localhost:5000/art-craft')
+        loader: () => fetch(`${myApiURL}/art-craft`)
+        // loader: () => fetch('http://localhost:5000/art-craft')
       },
       {
         path: '/add-art-craft',
         element: <PrivateRoutes><AddCraftItems></AddCraftItems></PrivateRoutes>
       },
       {
-        path: '/update-item',
-        element: <PrivateRoutes><UpdateCraftItems></UpdateCraftItems></PrivateRoutes>
+        path: '/update-item/:itemId',
+        element: <PrivateRoutes><UpdateCraftItems></UpdateCraftItems></PrivateRoutes>,
+        loader: () => fetch(`${myApiURL}/art-craft`)
       },
       {
         path: '/my-art-craft',
         element: <PrivateRoutes><MyArtCraftList></MyArtCraftList></PrivateRoutes>,
-        // loader: () => fetch(`https://assignment-10-server-side-olive.vercel.app/art-craft`)
-        loader: () => fetch('http://localhost:5000/art-craft')
+        loader: () => fetch(`${myApiURL}/art-craft`)
       },
       {
         path: '/profile',

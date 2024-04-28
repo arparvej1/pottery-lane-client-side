@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
   const [alreadyUpdate, setAlreadyUpdate] = useState(false);
   const [textDot, setTextDot] = useState('');
   const apiURL = `http://localhost:5000`;
-  // const apiURL = `https://assignment-10-server-side-olive.vercel.app`;
+  // const apiURL = import.meta.env.VITE_VERCEL_API;
 
   const womanLottie = () => {
     const options = {
