@@ -136,7 +136,7 @@ const Home = () => {
       {/* ---------- slider banner End ------------ */}
 
       <h3>Hello Client Side</h3>
-      <p>User: {users.length}</p>
+      <p className="text-4xl">User: {users.length}</p>
     </>
   );
 };

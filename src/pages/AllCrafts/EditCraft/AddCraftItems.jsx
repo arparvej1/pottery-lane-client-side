@@ -6,7 +6,6 @@ import { ToastContainer, toast } from "react-toastify";
 const AddCraftItems = () => {
   const { user, apiURL } = useContext(AuthContext);
 
-
   const handleAddItem = (e) => {
     e.preventDefault();
     const form = e.target;

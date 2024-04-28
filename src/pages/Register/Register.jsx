@@ -57,7 +57,6 @@ const Register = () => {
       .then(result => {
         setLoading(true);
         setAlreadyRegister(true);
-        logOut();
         // --------- send server start -----
         fetch(`${apiURL}/users`, {
           method: 'POST',
@@ -71,6 +70,7 @@ const Register = () => {
             console.log(data);
           })
         // --------- send server end -----
+        logOut();
         updateUserInfo(result.user, name, photo_url)
           .then(() => {
             setAvatarIcon(true);

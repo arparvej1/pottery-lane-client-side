@@ -15,6 +15,7 @@ const AllArtCraftItems = () => {
         setItems(data)
       })
   }, [])
+  
   return (
     <div>
       <Helmet>
