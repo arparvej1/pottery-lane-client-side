@@ -21,7 +21,9 @@ const MyArtCraftList = () => {
       </Helmet>
       <h3 className="bg-base-300 w-full p-5 md:p-8 text-2xl md:text-5xl font-bold text-center rounded-3xl my-5">My Art & Craft Items </h3>
       {
-        myItems.map(item => <MyArtCraftListCard key={item._id} item={item}></MyArtCraftListCard>)
+        myItems.map(item => <MyArtCraftListCard key={item._id} item={item} 
+          myItems={myItems} setMyItems={setMyItems}
+        ></MyArtCraftListCard>)
       }
     </div>
   );

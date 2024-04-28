@@ -86,7 +86,7 @@ const Navbar = () => {
                 <li className='my-2'>
                   {user.email}
                 </li>
-                {pNavLinks}
+                {/* {pNavLinks} */}
                 <li><span onClick={handleLogOut}>LogOut
                   <span className="badge"><FaSignOutAlt /></span>
                 </span></li>

@@ -43,7 +43,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/art-craft/:itemId',
-        element: <PrivateRoutes><ArtCraftItemsDetails></ArtCraftItemsDetails></PrivateRoutes>
+        element: <PrivateRoutes><ArtCraftItemsDetails></ArtCraftItemsDetails></PrivateRoutes>,
+        // loader: () => fetch(`https://assignment-10-server-side-olive.vercel.app/art-craft`)
+        loader: () => fetch('http://localhost:5000/art-craft')
       },
       {
         path: '/add-art-craft',
