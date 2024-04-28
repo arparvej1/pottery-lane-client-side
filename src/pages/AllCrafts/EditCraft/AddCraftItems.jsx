@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { ToastContainer, toast } from "react-toastify";
 
 const AddCraftItems = () => {
   const { user, apiURL } = useContext(AuthContext);
@@ -18,11 +19,11 @@ const AddCraftItems = () => {
     const customization = form.customization.value;
     const processingTime = form.processingTime.value;
     const shortDescription = form.shortDescription.value;
-    const completeItem = { itemName, subCategory, stockStatus, price, rating, photo, customization, processingTime, shortDescription, userId: user.uid, userEmail: user.email }
+    const completeItem = { itemName, subCategory, stockStatus, price, rating, photo, customization, processingTime, shortDescription, userUid: user.uid, userEmail: user.email, userName: user.displayName }
     console.log(completeItem);
     console.log(user);
     // --------- send server start -----
-    fetch(`${apiURL}/add-art-craft`, {
+    fetch(`${apiURL}/art-craft`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -31,6 +32,7 @@ const AddCraftItems = () => {
     })
       .then(res => res.json())
       .then(data => {
+        toast.success('Successfully Add Item!');
         console.log(data);
       })
     // --------- send server end -----
@@ -40,8 +42,8 @@ const AddCraftItems = () => {
       <Helmet>
         <title> Add Art & Craft Items | PotteryLane </title>
       </Helmet>
-      <div className="max-w-4xl mx-auto bg-primary-content p-10 rounded-xl">
-        <h3 className="text-3xl text-center mb-6 font-semibold mx-auto">Add Art & Craft Items</h3>
+      <div className="max-w-4xl mx-auto bg-primary-content p-5 md:p-8 lg:p-10 rounded-xl">
+        <h3 className="text-2xl md:text-3xl text-center mb-6 font-semibold mx-auto">Add Art & Craft Items</h3>
         <form
           onSubmit={handleAddItem}
           className="flex flex-col gap-5">
@@ -54,7 +56,14 @@ const AddCraftItems = () => {
           <div className="grid md:grid-cols-2 gap-5">
             <label className="flex flex-col gap-1 w-full">
               <span>Sub Category Name</span>
-              <input type="text" name="subCategory" placeholder="Sub Category Name" className="input input-bordered w-full" />
+              <select name="subCategory" className="select select-bordered w-full">
+                <option value="Clay-made pottery">Clay-made pottery</option>
+                <option value="Stoneware">Stoneware</option>
+                <option value="Porcelain">Porcelain</option>
+                <option value="Terra Cotta">Terra Cotta</option>
+                <option value="Ceramics & Architectural">Ceramics & Architectural</option>
+                <option value="Home decor pottery">Home decor pottery</option>
+              </select>
             </label>
             <label className="flex flex-col gap-1 w-full">
               <span>Stock Status</span>
@@ -80,7 +89,10 @@ const AddCraftItems = () => {
           <div className="grid md:grid-cols-2 gap-5">
             <label className="flex flex-col gap-1 w-full">
               <span>Customization</span>
-              <input type="text" name="customization" placeholder="Customization" className="input input-bordered w-full" />
+              <select name="customization" className="select select-bordered w-full">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </label>
             <label className="flex flex-col gap-1 w-full">
               <span>Processing Time</span>
@@ -93,6 +105,16 @@ const AddCraftItems = () => {
               <textarea name="shortDescription" placeholder="Short Description" className="textarea textarea-bordered h-24 w-full" ></textarea>
             </label>
           </div>
+          <div className="grid md:grid-cols-2 gap-5 border-[2px] p-4 border-info">
+            <label className="flex flex-col gap-1 w-full">
+              <span>User Name</span>
+              <input type="text" name="userName" value={user?.displayName} placeholder="User Name" className="input input-bordered text-base-content bg-base-200 w-full" />
+            </label>
+            <label className="flex flex-col gap-1 w-full">
+              <span>User Email</span>
+              <input type="text" name="userEmail" value={user?.email} placeholder="User Email" className="input input-bordered text-base-content bg-base-200 w-full" />
+            </label>
+          </div>
           <div className="gap-5">
             <label className="flex flex-col gap-1 w-full">
               <input type="submit" value="Add New Item" className="btn bg-secondary text-secondary-content w-full" />
@@ -100,6 +122,7 @@ const AddCraftItems = () => {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };

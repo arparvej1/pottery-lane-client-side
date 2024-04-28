@@ -12,6 +12,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import Profile from "../pages/Profile/Profile";
 import UpdateProfile from "../pages/Profile/UpdateProfile";
 import SecondRoot from "../layouts/SecondRoot";
+import ArtCraftItemsDetails from "../pages/AllCrafts/AllArtCraftItems/ArtCraftItemsDetails";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: '/all-art-craft',
         element: <PrivateRoutes><AllArtCraftItems></AllArtCraftItems></PrivateRoutes>
+      },
+      {
+        path: '/art-craft/:itemId',
+        element: <PrivateRoutes><ArtCraftItemsDetails></ArtCraftItemsDetails></PrivateRoutes>,
+        loader: () => fetch('http://localhost:5000/art-craft')
       },
       {
         path: '/add-art-craft',
