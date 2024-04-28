@@ -10,9 +10,9 @@ const Footer = () => {
       <nav className="grid grid-flow-col md:text-lg lg:text-xl">
         <Link to='/' className="link-hover">Home</Link>
         <div className="divider divider-horizontal w-1 mx-1"></div>
-        <Link to='/about' className="link-hover">About us</Link>
+        <Link to='/all-art-craft' className="link-hover">All Art Craft</Link>
         <div className="divider divider-horizontal w-1 mx-1"></div>
-        <Link to='/blogs' className="link-hover">Blogs</Link>
+        <Link to='/my-art-craft' className="link-hover">My Art Craft</Link>
         <div className="divider divider-horizontal w-1 mx-1"></div>
         {!user ?
           <Link to='/register' className="link-hover">Register</Link>

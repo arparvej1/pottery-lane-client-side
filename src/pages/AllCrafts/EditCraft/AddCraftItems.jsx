@@ -50,7 +50,7 @@ const AddCraftItems = () => {
       <Helmet>
         <title> Add Art & Craft Items | PotteryLane </title>
       </Helmet>
-      <div className="max-w-4xl mx-auto bg-primary-content p-5 md:p-8 lg:p-10 rounded-xl">
+      <div className="max-w-4xl mx-auto mt-5 bg-primary-content p-5 md:p-8 lg:p-10 rounded-xl">
         <h3 className="text-2xl md:text-3xl text-center mb-6 font-semibold mx-auto">Add Art & Craft Items</h3>
         <form
           onSubmit={handleAddItem}
