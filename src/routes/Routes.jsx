@@ -14,6 +14,7 @@ import UpdateProfile from "../pages/Profile/UpdateProfile";
 import SecondRoot from "../layouts/SecondRoot";
 import ArtCraftItemsDetails from "../pages/AllCrafts/AllArtCraftItems/ArtCraftItemsDetails";
 import UpdateCraftItems from "../pages/AllCrafts/EditCraft/UpdateCraftItems";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 // const myApiURL = import.meta.env.VITE_VERCEL_API;
 const myApiURL = `http://localhost:5000`;
@@ -22,10 +23,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch(`${myApiURL}/art-craft`)
       }
     ]
   },
@@ -42,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/all-art-craft',
-        element: <PrivateRoutes><AllArtCraftItems></AllArtCraftItems></PrivateRoutes>
+        element: <AllArtCraftItems></AllArtCraftItems>
       },
       {
         path: '/art-craft/:itemId',

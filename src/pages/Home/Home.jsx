@@ -11,16 +11,17 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { IoIosArrowRoundForward, IoIosCalendar } from "react-icons/io";
+import AllArtCraftItemsCard from "../AllCrafts/AllArtCraftItems/AllArtCraftItemsCard";
 
 const Home = () => {
   const { apiURL } = useContext(AuthContext);
-  const [users, setUsers] = useState([]);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`${apiURL}/users`)
+    fetch(`${apiURL}/art-craft`)
       .then(res => res.json())
       .then(data => {
-        setUsers(data)
+        setItems(data)
       })
   }, [])
 
@@ -134,9 +135,21 @@ const Home = () => {
         </Swiper>
       </div>
       {/* ---------- slider banner End ------------ */}
-
-      <h3>Hello Client Side</h3>
-      <p className="text-4xl">User: {users.length}</p>
+      {/* ------------- art & craft items start --------------- */}
+      <div className="max-w-screen-xl mx-5 xl:px-5 2xl:px-0 xl:mx-auto">
+        < h3 className="font-semibold text-xl md:text-2xl lg:text-3xl text-base-content mx-auto text-center">Art & Craft Items</h3>
+        <p className="my-5 text-center md:w-2/3 mx-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, accusantium impedit voluptates sequi dicta quisquam sed vitae, non fuga, in pariatur quia fugit </p>
+        {/* --- art & craft card --- */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {
+            items.sort(function () { return 0.5 - Math.random() }).slice(0, 6).map(item => <AllArtCraftItemsCard
+              key={item._id}
+              item={item}
+            ></AllArtCraftItemsCard>)
+          }
+        </div>
+      </div>
+      {/* ------------- art & craft items end --------------- */}
     </>
   );
 };

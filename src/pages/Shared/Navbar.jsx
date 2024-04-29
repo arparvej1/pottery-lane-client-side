@@ -30,7 +30,7 @@ const Navbar = () => {
   }
   const navLinks = <>
     <li><NavLink to='/'>Home</NavLink></li>
-    {/* <li><NavLink to='/blogs'>Blogs</NavLink></li> */}
+    <li><NavLink to='/all-art-craft'>All Art & Craft Items</NavLink></li>
     {
       !user && <>
         <li><NavLink to='/login'>Login</NavLink></li>
@@ -39,7 +39,6 @@ const Navbar = () => {
     }
     {
       user && <>
-        <li><NavLink to='/all-art-craft'>All Art & Craft Items</NavLink></li>
         <li><NavLink to='/add-art-craft'>Add Art & Craft</NavLink></li>
         <li><NavLink to='/my-art-craft'>My Art & Craft List</NavLink></li>
       </>

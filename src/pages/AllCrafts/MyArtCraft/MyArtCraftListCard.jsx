@@ -55,9 +55,10 @@ const MyArtCraftListCard = ({ item, myItems, setMyItems }) => {
           <p>Stock Status: {stockStatus}</p>
           <p>Customization: {customization}</p>
         </div>
-        <div className='md:col-span-1 flex flex-col gap-5'>
+        <div className='md:col-span-1 flex md:flex-col gap-5 justify-center'>
           <Link to={`/update-item/${_id}`} className='btn bg-accent text-accent-content'>Update</Link>
           <button onClick={() => handleDelete(_id)} className='btn bg-secondary text-secondary-content'>Delete</button>
+          <Link to={`/art-craft/${_id}`} className='btn bg-primary text-primary-content'>Details</Link>
         </div>
       </div>
     </div>
