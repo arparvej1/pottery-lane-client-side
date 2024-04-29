@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,6 +6,16 @@ import Swal from "sweetalert2";
 
 const AddCraftItems = () => {
   const { user, apiURL } = useContext(AuthContext);
+  const [categoryList, setCategoryList] = useState([]);
+
+  console.log(categoryList);
+  useEffect(() => {
+    fetch(`${apiURL}/category`)
+      .then(res => res.json())
+      .then(data => {
+        setCategoryList(data)
+      })
+  }, [])
 
   const handleAddItem = (e) => {
     e.preventDefault();
@@ -46,10 +56,40 @@ const AddCraftItems = () => {
     // --------- send server end -----
   }
 
-const handleAddCategory = ()=>{
-  console.log('click');
-}
-  
+  const handleAddBtn = () => {
+    document.getElementById('categoryAdd').showModal();
+  }
+  const handleAddCategory = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const categoryName = form.categoryName.value;
+    const categoryPhoto = form.categoryPhoto.value;
+    const category = { categoryName, categoryPhoto };
+    console.log(category);
+    // --------- send server start -----
+    fetch(`${apiURL}/category`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(category)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success('Successfully Add Category!')
+        }
+        form.reset();
+        fetch(`${apiURL}/category`)
+          .then(res => res.json())
+          .then(data => {
+            setCategoryList(data)
+          })
+      })
+    // --------- send server end -----
+  }
+
   return (
     <div>
       <Helmet>
@@ -71,14 +111,11 @@ const handleAddCategory = ()=>{
               <span>Sub Category Name</span>
               <div className="flex gap-1">
                 <select name="subCategory" className="select select-bordered w-full">
-                  <option value="Clay-made pottery">Clay-made pottery</option>
-                  <option value="Stoneware">Stoneware</option>
-                  <option value="Porcelain">Porcelain</option>
-                  <option value="Terra Cotta">Terra Cotta</option>
-                  <option value="Ceramics & Architectural">Ceramics & Architectural</option>
-                  <option value="Home decor pottery">Home decor pottery</option>
+                  {
+                    categoryList.map(category => <option key={category._id} value={category.categoryName}>{category.categoryName}</option>)
+                  }
                 </select>
-                <span onClick={handleAddCategory} className="btn">Add</span>
+                <span onClick={handleAddBtn} className="btn">Add</span>
               </div>
             </label>
             <label className="flex flex-col gap-1 w-full">
@@ -137,6 +174,39 @@ const handleAddCategory = ()=>{
             </label>
           </div>
         </form>
+      </div>
+      {/* ---------- modal category add --------- */}
+      <div>
+        {/* You can open the modal using document.getElementById('ID').showModal() method */}
+        <dialog id="categoryAdd" className="modal">
+          <div className="modal-box">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            <h3 className="font-bold text-lg text-center">Add New Category</h3>
+            <form
+              onSubmit={handleAddCategory}
+              className="flex flex-col gap-5">
+              <div className="grid grid-cols-1 gap-5">
+                <label className="flex flex-col gap-1 w-full">
+                  <span>Category Name</span>
+                  <input type="text" name="categoryName" placeholder="Category Name" className="input input-bordered w-full" />
+                </label>
+                <label className="flex flex-col gap-1 w-full">
+                  <span>Category Photo URL</span>
+                  <input type="text" name="categoryPhoto" placeholder="Category Photo URL" className="input input-bordered w-full" />
+                </label>
+              </div>
+              <div className="gap-5">
+                <label className="flex flex-col gap-1 w-full">
+                  <input type="submit" value="Add Category" className="btn bg-secondary text-secondary-content w-full" />
+                </label>
+              </div>
+            </form>
+          </div>
+        </dialog>
+
       </div>
       <ToastContainer />
     </div>

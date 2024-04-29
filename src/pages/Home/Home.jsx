@@ -17,14 +17,22 @@ import AllCategoryCard from "../AllCrafts/AllCategory/AllCategoryCard";
 const Home = () => {
   const { apiURL } = useContext(AuthContext);
   const [items, setItems] = useState([]);
-  const subCategory = [...new Set(items.map(val=>val.subCategory))]
-    
+  // const subCategory = [...new Set(items.map(val => val.subCategory))]
+  const [categoryList, setCategoryList] = useState([]);
+
   useEffect(() => {
     fetch(`${apiURL}/art-craft`)
       .then(res => res.json())
       .then(data => {
         setItems(data)
       })
+
+    fetch(`${apiURL}/category`)
+      .then(res => res.json())
+      .then(data => {
+        setCategoryList(data)
+      })
+
   }, [])
 
   return (
@@ -160,7 +168,7 @@ const Home = () => {
           {/* --- art & craft card --- */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             {
-              subCategory.sort(function () { return 0.5 - Math.random() }).slice(0, 6).map((category, idx) => <AllCategoryCard
+              categoryList.sort(function () { return 0.5 - Math.random() }).slice(0, 6).map((category, idx) => <AllCategoryCard
                 key={idx}
                 category={category}
               ></AllCategoryCard>)
