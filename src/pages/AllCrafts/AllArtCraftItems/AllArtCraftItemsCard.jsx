@@ -13,8 +13,8 @@ const AllArtCraftItemsCard = ({ item }) => {
         <h3 className='font-semibold text-2xl'>{itemName}</h3>
         <div className='grid grid-cols-2 gap-3'>
           <p>Price: {price}</p>
+          <p>Status: {stockStatus}</p>
           <p>Rating: {rating}</p>
-          <p>Stock Status: {stockStatus}</p>
           <p>Customization: {customization}</p>
         </div>
       </div>

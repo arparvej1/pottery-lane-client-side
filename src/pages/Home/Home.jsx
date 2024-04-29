@@ -8,9 +8,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // import required modules
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { IoIosArrowRoundForward, IoIosCalendar } from "react-icons/io";
+import { IoIosArrowRoundForward } from "react-icons/io";
 import AllArtCraftItemsCard from "../AllCrafts/AllArtCraftItems/AllArtCraftItemsCard";
 import AllCategoryCard from "../AllCrafts/AllCategory/AllCategoryCard";
 
@@ -59,17 +58,10 @@ const Home = () => {
           <SwiperSlide>
             <div className="w-full">
               <div className='relative'>
-                <img src="https://bw-craftxtore.bzotech.com/demo2/wp-content/uploads/2023/09/item-slider-home2-2.webp" className="w-full lg:h-[600px]" />
-                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3'>
-                  <h3 className='text-3xl  font-medium '>Tranquil Suburban Retreat</h3>
-                  <h3 className='text-xl font-semibold'>Price: $3,000/month</h3>
-                  <div className='flex gap-2 items-center'>
-                    <span><FaMapMarkerAlt /></span>
-                    <span>Suburbia Haven</span>
-                  </div>
-                  <div className='flex'>
-                    <Link className='btn btn-primary' to='/apartments-details/2'>View Details</Link>
-                  </div>
+                <img src="https://www.homesteadpottery.com/wp-content/uploads/2015/07/intro-to-pottery.png" className="w-full lg:h-[600px]" />
+                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3   w-2/3'>
+                  <h3 className='text-3xl  font-medium '>An Introduction to Pottery</h3>
+                  <p className='text-xl font-semibold'>Pottery is an ancient craft, with the earliest historical records of wheel-thrown pottery dating back to 4000 B.C. in Egypt and 3000 B.C. in China.</p>
                 </div>
               </div>
             </div>
@@ -77,24 +69,10 @@ const Home = () => {
           <SwiperSlide>
             <div className="w-full">
               <div className='relative'>
-                <img src="https://bw-craftxtore.bzotech.com/demo2/wp-content/uploads/2023/09/item-slider-home2-1.webp" className="w-full lg:h-[600px]" />
-                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3'>
-                  <h3 className='text-3xl  font-medium '>Modern Beachfront Condo</h3>
-                  <h3 className='text-xl font-semibold'>Author: Sophie Carter</h3>
-                  <div className="flex gap-2">
-                    <IoIosCalendar className='text-2xl' />
-                    <span>
-                      June 10, 2023
-                    </span>
-                  </div>
-                  <div className='max-w-96'>
-                    <p>
-                      Experience beachfront luxury in this modern condo overlooking the ocean. With sleek design,
-                    </p>
-                    <p>
-                      <Link to={`/blog-details/9-Modern-Beachfront-Condo`} className='flex gap-1 items-center text-[#1266e3] font-semibold'><span>Continue</span> <IoIosArrowRoundForward className='text-3xl' /></Link>
-                    </p>
-                  </div>
+                <img src="https://www.worldhistory.org/img/c/p/1200x627/9996.jpg" className="w-full lg:h-[600px]" />
+                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3   w-2/3'>
+                  <h3 className='text-3xl  font-medium '>Ming Porcelain</h3>
+                  <p className='text-xl font-semibold'>The porcelain of the Ming Dynasty of China (1368-1644 CE) benefitted, as did other arts, from the economic success of the 15th century CE, in particular</p>
                 </div>
               </div>
             </div>
@@ -102,42 +80,10 @@ const Home = () => {
           <SwiperSlide>
             <div className="w-full">
               <div className='relative'>
-                <img src="https://bw-craftxtore.bzotech.com/demo2/wp-content/uploads/2023/09/item-slider-home2-2.webp" className="w-full lg:h-[600px]" />
-                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3'>
-                  <h3 className='text-3xl  font-medium '>Family-Friendly Suburban Home</h3>
-                  <h3 className='text-xl font-semibold'>Price: $320,000</h3>
-                  <div className='flex gap-2 items-center'>
-                    <span><FaMapMarkerAlt /></span>
-                    <span>Suburbia Meadows</span>
-                  </div>
-                  <div className='flex'>
-                    <Link className='btn btn-primary' to='/apartments-details/6'>View Details</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="w-full">
-              <div className='relative'>
-                <img src="https://bw-craftxtore.bzotech.com/demo2/wp-content/uploads/2023/09/item-slider-home2-1.webp" className="w-full lg:h-[600px]" />
-                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3'>
-                  <h3 className='text-3xl  font-medium '>Rustic Mountain Cabin Retreat</h3>
-                  <h3 className='text-xl font-semibold'>Author: William Johnson</h3>
-                  <div className="flex gap-2">
-                    <IoIosCalendar className='text-2xl' />
-                    <span>
-                      May 15, 2023
-                    </span>
-                  </div>
-                  <div className='max-w-96'>
-                    <p>
-                      Experience the serenity of nature in this rustic mountain cabin retreat. Surrounded by towering pines and majestic peaks,
-                    </p>
-                    <p>
-                      <Link to={`/blog-details/6-Rustic-Mountain-Cabin-Retreat`} className='flex gap-1 items-center text-[#1266e3] font-semibold'><span>Continue</span> <IoIosArrowRoundForward className='text-3xl' /></Link>
-                    </p>
-                  </div>
+                <img src="https://www.re-thinkingthefuture.com/wp-content/uploads/2021/07/A4516-10-Projects-constructed-with-Architectural-Ceramics-IMG-4.jpg" className="w-full lg:h-[600px]" />
+                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3   w-2/3'>
+                  <h3 className='text-3xl  font-medium '>Ceramics in Architecture</h3>
+                  <p className='text-xl font-semibold'>Ceramics are hard and brittle materials that are generally used to create pottery and tiles. Ceramics in architecture have been in use across various eras from the colourful Art Nouveau to the eclectic Art Deco.</p>
                 </div>
               </div>
             </div>

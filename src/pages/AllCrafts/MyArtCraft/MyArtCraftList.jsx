@@ -45,11 +45,13 @@ const MyArtCraftList = () => {
 
 
       </div>
-      {
-        myItems.map(item => <MyArtCraftListCard key={item._id} item={item}
-          myItems={myItems} setMyItems={setMyItems}
-        ></MyArtCraftListCard>)
-      }
+      <div className="max-w-5xl mx-auto">
+        {
+          myItems.map(item => <MyArtCraftListCard key={item._id} item={item}
+            myItems={myItems} setMyItems={setMyItems}
+          ></MyArtCraftListCard>)
+        }
+      </div>
     </div>
   );
 };
