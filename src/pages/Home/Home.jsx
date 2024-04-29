@@ -58,7 +58,7 @@ const Home = () => {
           <SwiperSlide>
             <div className="w-full">
               <div className='relative'>
-                <img src="https://www.homesteadpottery.com/wp-content/uploads/2015/07/intro-to-pottery.png" className="w-full lg:h-[600px]" />
+                <img src="https://i.ibb.co/5LBgmmn/An-Introduction-to-Pottery.png" className="w-full lg:h-[600px]" />
                 <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3   w-2/3'>
                   <h3 className='text-3xl  font-medium '>An Introduction to Pottery</h3>
                   <p className='text-xl font-semibold'>Pottery is an ancient craft, with the earliest historical records of wheel-thrown pottery dating back to 4000 B.C. in Egypt and 3000 B.C. in China.</p>
@@ -69,7 +69,7 @@ const Home = () => {
           <SwiperSlide>
             <div className="w-full">
               <div className='relative'>
-                <img src="https://www.worldhistory.org/img/c/p/1200x627/9996.jpg" className="w-full lg:h-[600px]" />
+                <img src="https://i.ibb.co/9VqcZpK/Ming-Porcelain.jpg" className="w-full lg:h-[600px]" />
                 <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3   w-2/3'>
                   <h3 className='text-3xl  font-medium '>Ming Porcelain</h3>
                   <p className='text-xl font-semibold'>The porcelain of the Ming Dynasty of China (1368-1644 CE) benefitted, as did other arts, from the economic success of the 15th century CE, in particular</p>
@@ -80,7 +80,7 @@ const Home = () => {
           <SwiperSlide>
             <div className="w-full">
               <div className='relative'>
-                <img src="https://www.re-thinkingthefuture.com/wp-content/uploads/2021/07/A4516-10-Projects-constructed-with-Architectural-Ceramics-IMG-4.jpg" className="w-full lg:h-[600px]" />
+                <img src="https://i.ibb.co/f4PfsP2/Ceramics-in-Architecture.jpg" className="w-full lg:h-[600px]" />
                 <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3   w-2/3'>
                   <h3 className='text-3xl  font-medium '>Ceramics in Architecture</h3>
                   <p className='text-xl font-semibold'>Ceramics are hard and brittle materials that are generally used to create pottery and tiles. Ceramics in architecture have been in use across various eras from the colourful Art Nouveau to the eclectic Art Deco.</p>
