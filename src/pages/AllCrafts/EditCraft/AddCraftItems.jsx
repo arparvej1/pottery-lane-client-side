@@ -29,7 +29,7 @@ const AddCraftItems = () => {
     const processingTime = form.processingTime.value;
     const shortDescription = form.shortDescription.value;
     const completeItem = { itemName, subCategory, stockStatus, price, rating, photo, customization, processingTime, shortDescription, userUid: user.uid, userEmail: user.email, userName: user.displayName }
-    
+
     // --------- send server start -----
     fetch(`${apiURL}/art-craft`, {
       method: 'POST',
@@ -118,7 +118,10 @@ const AddCraftItems = () => {
             </label>
             <label className="flex flex-col gap-1 w-full">
               <span>Stock Status</span>
-              <input type="text" name="stockStatus" placeholder="Stock Status" className="input input-bordered w-full" required />
+              <select name="stockStatus" className="select select-bordered w-full">
+                <option value="In stock">In stock</option>
+                <option value="Made to Order">Made to Order</option>
+              </select>
             </label>
           </div>
           <div className="grid md:grid-cols-2 gap-5">

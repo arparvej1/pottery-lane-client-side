@@ -35,6 +35,7 @@ const router = createBrowserRouter([
   },
   {
     element: <SecondRoot></SecondRoot>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/register',

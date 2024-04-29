@@ -91,7 +91,10 @@ const UpdateCraftItems = () => {
             </label>
             <label className="flex flex-col gap-1 w-full">
               <span>Stock Status</span>
-              <input type="text" name="stockStatus" defaultValue={stockStatus} placeholder="Stock Status" className="input input-bordered w-full" />
+              <select name="stockStatus" className="select select-bordered w-full">
+                <option value="In stock">In stock</option>
+                <option selected={stockStatus === 'Made to Order' ? true : false} value="Made to Order">Made to Order</option>
+              </select>
             </label>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
