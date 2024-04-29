@@ -45,6 +45,11 @@ const AddCraftItems = () => {
       })
     // --------- send server end -----
   }
+
+const handleAddCategory = ()=>{
+  console.log('click');
+}
+  
   return (
     <div>
       <Helmet>
@@ -64,14 +69,17 @@ const AddCraftItems = () => {
           <div className="grid md:grid-cols-2 gap-5">
             <label className="flex flex-col gap-1 w-full">
               <span>Sub Category Name</span>
-              <select name="subCategory" className="select select-bordered w-full">
-                <option value="Clay-made pottery">Clay-made pottery</option>
-                <option value="Stoneware">Stoneware</option>
-                <option value="Porcelain">Porcelain</option>
-                <option value="Terra Cotta">Terra Cotta</option>
-                <option value="Ceramics & Architectural">Ceramics & Architectural</option>
-                <option value="Home decor pottery">Home decor pottery</option>
-              </select>
+              <div className="flex gap-1">
+                <select name="subCategory" className="select select-bordered w-full">
+                  <option value="Clay-made pottery">Clay-made pottery</option>
+                  <option value="Stoneware">Stoneware</option>
+                  <option value="Porcelain">Porcelain</option>
+                  <option value="Terra Cotta">Terra Cotta</option>
+                  <option value="Ceramics & Architectural">Ceramics & Architectural</option>
+                  <option value="Home decor pottery">Home decor pottery</option>
+                </select>
+                <span onClick={handleAddCategory} className="btn">Add</span>
+              </div>
             </label>
             <label className="flex flex-col gap-1 w-full">
               <span>Stock Status</span>

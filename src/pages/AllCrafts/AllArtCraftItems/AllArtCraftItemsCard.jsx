@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const AllArtCraftItemsCard = ({ item }) => {
-  const { itemName, photo, price, rating, stockStatus, customization } = item;
+  const { _id, itemName, photo, price, rating, stockStatus, customization } = item;
 
   return (
     <div className='p-5 my-5 rounded-2xl border-2 border-accent flex flex-col justify-between gap-3 bg-secondary-content'>
@@ -17,7 +18,7 @@ const AllArtCraftItemsCard = ({ item }) => {
           <p>Customization: {customization}</p>
         </div>
       </div>
-      <button className='btn bg-accent text-accent-content'>View Details</button>
+      <Link to={`/art-craft/${_id}`} className='btn bg-accent text-accent-content'>View Details</Link>
     </div>
   );
 };

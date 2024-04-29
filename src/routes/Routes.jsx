@@ -15,6 +15,7 @@ import SecondRoot from "../layouts/SecondRoot";
 import ArtCraftItemsDetails from "../pages/AllCrafts/AllArtCraftItems/ArtCraftItemsDetails";
 import UpdateCraftItems from "../pages/AllCrafts/EditCraft/UpdateCraftItems";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import SelectedSubCategory from "../pages/AllCrafts/AllCategory/SelectedSubCategory";
 
 // const myApiURL = import.meta.env.VITE_VERCEL_API;
 const myApiURL = `http://localhost:5000`;
@@ -65,6 +66,11 @@ const router = createBrowserRouter([
       {
         path: '/my-art-craft',
         element: <PrivateRoutes><MyArtCraftList></MyArtCraftList></PrivateRoutes>,
+        loader: () => fetch(`${myApiURL}/art-craft`)
+      },
+      {
+        path: '/sub-category/:category',
+        element: <PrivateRoutes><SelectedSubCategory></SelectedSubCategory></PrivateRoutes>,
         loader: () => fetch(`${myApiURL}/art-craft`)
       },
       {
