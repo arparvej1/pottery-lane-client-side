@@ -8,8 +8,6 @@ const SelectedSubCategory = () => {
   const { category } = useParams();
   const [categoryItems, setCategoryItems] = useState([]);
 
-  console.log(categoryItems);
-
   useEffect(() => {
     const filtered = items.filter(item => item.subCategory.includes(category));
     setCategoryItems(filtered);

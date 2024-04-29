@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet-async";
 const AllArtCraftItems = () => {
   const { apiURL } = useContext(AuthContext);
   const [items, setItems] = useState([]);
-  console.log(items);
 
   useEffect(() => {
     fetch(`${apiURL}/art-craft`)

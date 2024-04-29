@@ -8,7 +8,6 @@ const AddCraftItems = () => {
   const { user, apiURL } = useContext(AuthContext);
   const [categoryList, setCategoryList] = useState([]);
 
-  console.log(categoryList);
   useEffect(() => {
     fetch(`${apiURL}/category`)
       .then(res => res.json())
@@ -30,8 +29,7 @@ const AddCraftItems = () => {
     const processingTime = form.processingTime.value;
     const shortDescription = form.shortDescription.value;
     const completeItem = { itemName, subCategory, stockStatus, price, rating, photo, customization, processingTime, shortDescription, userUid: user.uid, userEmail: user.email, userName: user.displayName }
-    console.log(completeItem);
-    console.log(user);
+    
     // --------- send server start -----
     fetch(`${apiURL}/art-craft`, {
       method: 'POST',
@@ -103,7 +101,7 @@ const AddCraftItems = () => {
           <div className="gap-5">
             <label className="flex flex-col gap-1 w-full">
               <span>Items Name</span>
-              <input type="text" name="itemName" placeholder="Items Name" className="input input-bordered w-full" />
+              <input type="text" name="itemName" placeholder="Items Name" className="input input-bordered w-full" required />
             </label>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
@@ -120,23 +118,23 @@ const AddCraftItems = () => {
             </label>
             <label className="flex flex-col gap-1 w-full">
               <span>Stock Status</span>
-              <input type="text" name="stockStatus" placeholder="Stock Status" className="input input-bordered w-full" />
+              <input type="text" name="stockStatus" placeholder="Stock Status" className="input input-bordered w-full" required />
             </label>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
             <label className="flex flex-col gap-1 w-full">
               <span>Price</span>
-              <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" />
+              <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" required />
             </label>
             <label className="flex flex-col gap-1 w-full">
               <span>Rating</span>
-              <input type="text" name="rating" placeholder="Rating" className="input input-bordered w-full" />
+              <input type="text" name="rating" placeholder="Rating" className="input input-bordered w-full" required />
             </label>
           </div>
           <div className="gap-5">
             <label className="flex flex-col gap-1 w-full">
               <span>Photo URL</span>
-              <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered w-full" />
+              <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered w-full" required />
             </label>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
@@ -149,13 +147,13 @@ const AddCraftItems = () => {
             </label>
             <label className="flex flex-col gap-1 w-full">
               <span>Processing Time</span>
-              <input type="text" name="processingTime" placeholder="Processing Time" className="input input-bordered w-full" />
+              <input type="text" name="processingTime" placeholder="Processing Time" className="input input-bordered w-full" required />
             </label>
           </div>
           <div className="gap-5">
             <label className="flex flex-col gap-1 w-full">
               <span>Short Description</span>
-              <textarea name="shortDescription" placeholder="Short Description" className="textarea textarea-bordered h-24 w-full" ></textarea>
+              <textarea name="shortDescription" placeholder="Short Description" className="textarea textarea-bordered h-24 w-full" required ></textarea>
             </label>
           </div>
           <div className="grid md:grid-cols-2 gap-5 border-[2px] p-4 border-info">
@@ -170,7 +168,7 @@ const AddCraftItems = () => {
           </div>
           <div className="gap-5">
             <label className="flex flex-col gap-1 w-full">
-              <input type="submit" value="Add New Item" className="btn bg-secondary text-secondary-content w-full" />
+              <input type="submit" value="Add New Item" className="btn bg-primary text-primary-content w-full" />
             </label>
           </div>
         </form>
@@ -191,11 +189,11 @@ const AddCraftItems = () => {
               <div className="grid grid-cols-1 gap-5">
                 <label className="flex flex-col gap-1 w-full">
                   <span>Category Name</span>
-                  <input type="text" name="categoryName" placeholder="Category Name" className="input input-bordered w-full" />
+                  <input type="text" name="categoryName" placeholder="Category Name" className="input input-bordered w-full" required />
                 </label>
                 <label className="flex flex-col gap-1 w-full">
                   <span>Category Photo URL</span>
-                  <input type="text" name="categoryPhoto" placeholder="Category Photo URL" className="input input-bordered w-full" />
+                  <input type="text" name="categoryPhoto" placeholder="Category Photo URL" className="input input-bordered w-full" required />
                 </label>
               </div>
               <div className="gap-5">

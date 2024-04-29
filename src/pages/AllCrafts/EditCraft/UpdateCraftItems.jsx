@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { ToastContainer } from "react-toastify";
@@ -11,8 +11,17 @@ const UpdateCraftItems = () => {
   const { itemId } = useParams();
   const item = items.find(i => i._id === itemId);
   const { _id, itemName, photo, subCategory, price, processingTime, rating, shortDescription, customization, stockStatus } = item;
-
   const { user, apiURL } = useContext(AuthContext);
+
+  const [categoryList, setCategoryList] = useState([]);
+
+  useEffect(() => {
+    fetch(`${apiURL}/category`)
+      .then(res => res.json())
+      .then(data => {
+        setCategoryList(data)
+      })
+  }, [])
 
   const handleUpdateItem = (e) => {
     e.preventDefault();
@@ -27,8 +36,7 @@ const UpdateCraftItems = () => {
     const processingTime = form.processingTime.value;
     const shortDescription = form.shortDescription.value;
     const completeItem = { itemName, subCategory, stockStatus, price, rating, photo, customization, processingTime, shortDescription, userUid: user.uid, userEmail: user.email, userName: user.displayName };
-    console.log(completeItem);
-    console.log(user);
+    
     // --------- send server start -----
     fetch(`${apiURL}/art-craft/${_id}`, {
       method: 'PUT',
@@ -72,12 +80,13 @@ const UpdateCraftItems = () => {
             <label className="flex flex-col gap-1 w-full">
               <span>Sub Category Name</span>
               <select name="subCategory" className="select select-bordered w-full">
-                <option selected={subCategory === 'Clay-made pottery' ? true : false} value="Clay-made pottery">Clay-made pottery</option>
-                <option selected={subCategory === 'Stoneware' ? true : false} value="Stoneware">Stoneware</option>
-                <option selected={subCategory === 'Porcelain' ? true : false} value="Porcelain">Porcelain</option>
-                <option selected={subCategory === 'Terra Cotta' ? true : false} value="Terra Cotta">Terra Cotta</option>
-                <option selected={subCategory === 'Ceramics & Architectural' ? true : false} value="Ceramics & Architectural">Ceramics & Architectural</option>
-                <option selected={subCategory === 'Home decor pottery' ? true : false} value="Home decor pottery">Home decor pottery</option>
+                {
+                  categoryList.map(category => <option
+                    key={category._id}
+                    value={category.categoryName}
+                    selected={subCategory === category.categoryName ? true : false}
+                  >{category.categoryName}</option>)
+                }
               </select>
             </label>
             <label className="flex flex-col gap-1 w-full">
