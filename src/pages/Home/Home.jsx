@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import AllArtCraftItemsCard from "../AllCrafts/AllArtCraftItems/AllArtCraftItemsCard";
 import AllCategoryCard from "../AllCrafts/AllCategory/AllCategoryCard";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import './home.css';
 
 const Home = () => {
@@ -54,6 +54,15 @@ const Home = () => {
         console.error('Error fetching data:', error);
       });
   }, []);
+
+  const handleSubscribeEmail = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const subscribeEmail = form.subscribeEmail.value;
+    console.log(subscribeEmail);
+    toast.success('Thanks for Subscribed!')
+    form.reset();
+  }
 
   return (
     <>
@@ -189,6 +198,25 @@ const Home = () => {
         </Swiper>
       </div>
       {/* ---------- slider review End ------------ */}
+      {/* News Subscriber */}
+        <p  className="max-w-2xl text-center my-5 px-5 mx-auto">
+          Subscribe to PotteryLane for updates on exquisite ceramics & pottery. Elevate your space with handcrafted beauty. Don't miss out!
+        </p>
+      <div className="max-w-96 px-5 mx-auto">
+        <form onSubmit={handleSubscribeEmail} className="flex flex-col gap-5">
+          <div>
+            <label className="flex flex-col gap-1 w-full">
+              <span></span>
+              <input type="email" name="subscribeEmail" placeholder="Enter your email.." className="input input-bordered w-full" required />
+            </label>
+          </div>
+          <div className="gap-5">
+            <label className="flex flex-col gap-1 w-full">
+              <input type="submit" value="Subscribe" className="btn bg-secondary text-secondary-content w-full" />
+            </label>
+          </div>
+        </form>
+      </div>
       <ToastContainer />
     </>
   );
