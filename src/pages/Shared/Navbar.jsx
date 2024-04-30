@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { RxAvatar } from "react-icons/rx";
 import { FaSignOutAlt } from "react-icons/fa";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, logOut, avatarIcon } = useContext(AuthContext);
@@ -76,11 +77,18 @@ const Navbar = () => {
         {
           user ?
             <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" title={user.displayName || user.email} className="btn btn-ghost btn-circle avatar">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img alt={user.email} src={user.photoURL || (avatarIcon && "https://i.ibb.co/ZT5tByN/avatar-15-blue.jpg")} />
+                  <div data-tooltip-id="my-tooltip-1" style={{ backgroundColor: "#999" }}>
+                    <img alt={user.email} src={user.photoURL || (avatarIcon && "https://i.ibb.co/ZT5tByN/avatar-15-blue.jpg")} />
+                  </div>
                 </div>
               </div>
+              <ReactTooltip
+                id="my-tooltip-1"
+                place="bottom"
+                content={user.displayName || user.email} 
+              />
               <ul tabIndex={0} className="mt-3 z-[50] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                 <li className='my-2'>
                   {user.email}

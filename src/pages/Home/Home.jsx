@@ -92,7 +92,7 @@ const Home = () => {
       {/* ------------- art & craft items start --------------- */}
       <div className="max-w-screen-xl mx-5 xl:px-5 2xl:px-0 xl:mx-auto">
         < h3 className="font-semibold text-xl md:text-2xl lg:text-3xl text-base-content mx-auto text-center">Art & Craft Items</h3>
-        <p className="my-5 text-center md:w-2/3 mx-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, accusantium impedit voluptates sequi dicta quisquam sed vitae, non fuga, in pariatur quia fugit </p>
+        <p className="my-5 text-center md:w-2/3 mx-auto">PotteryLane features clay-made pottery, stoneware, porcelain, terra cotta, ceramics & architectural pieces, and home decor pottery, meticulously crafted by skilled artisans for elegant home accents.</p>
         {/* --- art & craft card --- */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
           {
@@ -108,7 +108,7 @@ const Home = () => {
       <div className="border-t-2 rounded-[50px] md:rounded-[100px] lg:rounded-[150px] mt-5 md:mt-10 border-info">
         <div className="max-w-screen-xl mx-5 mt-5 md:mt-10 xl:px-5 2xl:px-0 xl:mx-auto">
           < h3 className="font-semibold text-xl md:text-2xl lg:text-3xl text-base-content mx-auto text-center">Art & Craft Categories</h3>
-          <p className="my-5 text-center md:w-2/3 mx-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, accusantium impedit voluptates sequi dicta quisquam sed vitae, non fuga, in pariatur quia fugit </p>
+          <p className="my-5 text-center md:w-2/3 mx-auto">PotteryLane showcases a diverse range of art and craft categories, including ceramics, pottery, painting, sculpture, textile art, and woodworking, each offering unique handcrafted items to adorn your living spaces with elegance and charm.</p>
           {/* --- art & craft card --- */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             {
