@@ -6,12 +6,14 @@ import { Helmet } from "react-helmet-async";
 const AllArtCraftItems = () => {
   const { apiURL } = useContext(AuthContext);
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${apiURL}/art-craft`)
       .then(res => res.json())
       .then(data => {
-        setItems(data)
+        setItems(data);
+        setLoading(false);
       })
   }, []);
 
@@ -51,6 +53,12 @@ const AllArtCraftItems = () => {
               }
             </tbody>
           </table>
+          {
+            loading &&
+            <div className="flex justify-center">
+              <span className="loading loading-spinner loading-lg"></span>
+            </div>
+          }
         </div>
       </div>
 

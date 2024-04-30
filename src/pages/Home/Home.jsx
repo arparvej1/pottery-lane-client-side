@@ -17,12 +17,14 @@ const Home = () => {
   const [items, setItems] = useState([]);
   // const subCategory = [...new Set(items.map(val => val.subCategory))]
   const [categoryList, setCategoryList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${apiURL}/art-craft`)
       .then(res => res.json())
       .then(data => {
         setItems(data)
+        setLoading(false);
       })
 
     fetch(`${apiURL}/category`)
@@ -125,6 +127,12 @@ const Home = () => {
             }
           </div>
         </div>
+        {
+          loading &&
+          <div className="flex justify-center">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        }
       </div>
       {/* ------------- subcategory start --------------- */}
       <ToastContainer />

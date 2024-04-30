@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Fade, Bounce } from "react-awesome-reveal";
 
 const AllArtCraftItemsCard = ({ item }) => {
-  const { _id, itemName, photo, price, rating, stockStatus, customization } = item;
+  const { _id, itemName, photo, price, rating, stockStatus, processingTime, subCategory } = item;
 
   return (
     <div className='p-5 my-5 rounded-2xl border-2 border-accent flex flex-col justify-between gap-3 bg-secondary-content'>
@@ -18,8 +18,13 @@ const AllArtCraftItemsCard = ({ item }) => {
           <Fade delay={1e3} cascade damping={1e-1}>
             <p>Price: {price}</p>
             <p>Status: {stockStatus}</p>
+            <p>Category: {subCategory}</p>
             <p>Rating: {rating}</p>
-            <p>Customization: {customization}</p>
+          </Fade>
+        </div>
+        <div className='grid grid-cols-1 gap-3'>
+          <Fade delay={1500} cascade damping={1e-1}>
+            <p>Processing Time: {processingTime}</p>
           </Fade>
         </div>
       </div>
