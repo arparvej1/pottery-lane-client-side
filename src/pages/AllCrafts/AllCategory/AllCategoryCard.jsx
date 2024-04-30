@@ -17,7 +17,7 @@ const AllCategoryCard = ({ category }) => {
 };
 
 AllCategoryCard.propTypes = {
-  category: PropTypes.string
+  category: PropTypes.object
 }
 
 export default AllCategoryCard;

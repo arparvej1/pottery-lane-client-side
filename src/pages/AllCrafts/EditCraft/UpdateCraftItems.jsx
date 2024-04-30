@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { ToastContainer } from "react-toastify";
 import { Helmet } from "react-helmet-async";
@@ -12,6 +12,7 @@ const UpdateCraftItems = () => {
   const item = items.find(i => i._id === itemId);
   const { _id, itemName, photo, subCategory, price, processingTime, rating, shortDescription, customization, stockStatus } = item;
   const { user, apiURL } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [categoryList, setCategoryList] = useState([]);
 
@@ -36,7 +37,7 @@ const UpdateCraftItems = () => {
     const processingTime = form.processingTime.value;
     const shortDescription = form.shortDescription.value;
     const completeItem = { itemName, subCategory, stockStatus, price, rating, photo, customization, processingTime, shortDescription, userUid: user.uid, userEmail: user.email, userName: user.displayName };
-    
+
     // --------- send server start -----
     fetch(`${apiURL}/art-craft/${_id}`, {
       method: 'PUT',
@@ -55,6 +56,7 @@ const UpdateCraftItems = () => {
             icon: 'success',
             confirmButtonText: 'Okay'
           })
+          navigate(`/art-craft/${_id}`)
         }
       })
     // --------- send server end -----

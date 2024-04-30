@@ -8,8 +8,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // import required modules
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import { Link } from "react-router-dom";
-import { IoIosArrowRoundForward } from "react-icons/io";
 import AllArtCraftItemsCard from "../AllCrafts/AllArtCraftItems/AllArtCraftItemsCard";
 import AllCategoryCard from "../AllCrafts/AllCategory/AllCategoryCard";
 
