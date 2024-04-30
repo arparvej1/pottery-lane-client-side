@@ -110,6 +110,12 @@ const Home = () => {
             ></AllArtCraftItemsCard>)
           }
         </div>
+        {
+          loading &&
+          <div className="flex justify-center">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        }
       </div>
       {/* ------------- art & craft items end --------------- */}
       {/* ------------- subcategory start --------------- */}
@@ -127,12 +133,6 @@ const Home = () => {
             }
           </div>
         </div>
-        {
-          loading &&
-          <div className="flex justify-center">
-            <span className="loading loading-spinner loading-lg"></span>
-          </div>
-        }
       </div>
       {/* ------------- subcategory start --------------- */}
       <ToastContainer />

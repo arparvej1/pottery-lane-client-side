@@ -44,13 +44,11 @@ const Navbar = () => {
         <li><NavLink to='/my-art-craft'>My Art & Craft List</NavLink></li>
       </>
     }
-    {/* <li><NavLink to='/about'>About</NavLink></li> */}
   </>
   const pNavLinks = <>
     {
       user && <>
         <li><NavLink to='/profile'>Profile</NavLink></li>
-        {/* <li><NavLink to='/update-profile'>Update Profile</NavLink></li> */}
       </>
     }
   </>
@@ -69,7 +67,7 @@ const Navbar = () => {
         <Link to='/' className="btn bg-gradient-to-r from-sky-400 to-blue-500 text-xl md:text-2xl text-white">PotteryLane</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-xl">
+        <ul className="menu menu-horizontal px-1 text-lg">
           {navLinks}
         </ul>
       </div>

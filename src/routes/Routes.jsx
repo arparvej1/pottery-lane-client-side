@@ -10,7 +10,6 @@ import AddCraftItems from "../pages/AllCrafts/EditCraft/AddCraftItems";
 import MyArtCraftList from "../pages/AllCrafts/MyArtCraft/MyArtCraftList";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import Profile from "../pages/Profile/Profile";
-import UpdateProfile from "../pages/Profile/UpdateProfile";
 import SecondRoot from "../layouts/SecondRoot";
 import ArtCraftItemsDetails from "../pages/AllCrafts/AllArtCraftItems/ArtCraftItemsDetails";
 import UpdateCraftItems from "../pages/AllCrafts/EditCraft/UpdateCraftItems";
@@ -28,8 +27,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>,
-        loader: () => fetch(`${myApiURL}/art-craft`)
+        element: <Home></Home>
       }
     ]
   },
@@ -77,10 +75,6 @@ const router = createBrowserRouter([
         path: '/profile',
         element: <PrivateRoutes><Profile></Profile></PrivateRoutes>
       }
-      // {
-      //   path: '/update-profile',
-      //   element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>
-      // }
     ]
   }
 ]);
