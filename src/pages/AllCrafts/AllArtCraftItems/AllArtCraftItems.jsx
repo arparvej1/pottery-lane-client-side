@@ -14,35 +14,35 @@ const AllArtCraftItems = () => {
         setItems(data)
       })
   }, [])
-  
+
   return (
     <div>
       <Helmet>
         <title> All Art Craft Items | PotteryLane </title>
       </Helmet>
       <h3 className="bg-base-300 w-full p-5 md:p-8 text-2xl md:text-5xl font-bold text-center rounded-3xl my-5">All Art Craft Items </h3>
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="overflow-x-auto">
           <table className="table table-xs table-pin-rows table-pin-cols">
             <thead>
               <tr>
                 <th></th>
-                <td>Item Name</td>
-                <td>Sub Category</td>
-                <td>Price</td>
-                <td>Stock Status</td>
-                <td></td>
+                <td className="md:text-sm lg:text-lg">Item Name</td>
+                <td className="md:text-sm lg:text-lg">Sub Category</td>
+                <td className="md:text-sm lg:text-lg">Price</td>
+                <td className="md:text-sm lg:text-lg">Stock Status</td>
+                <td className="md:text-sm lg:text-lg"></td>
               </tr>
             </thead>
             <tbody>
               {
-                items.map((item, idx) => <tr key={item._id}>
-                  <th>{idx + 1}</th>
-                  <td>{item.itemName}</td>
-                  <td>{item.subCategory}</td>
-                  <td>{item.price}</td>
-                  <td>{item.stockStatus}</td>
-                  <td><Link to={`/art-craft/${item._id}`} className="btn btn-link">View Details</Link></td>
+                items.map((item, idx) => <tr key={item._id} className="md:text-sm lg:text-lg">
+                  <th className="md:text-sm lg:text-lg">{idx + 1}</th>
+                  <td className="md:text-sm lg:text-lg">{item.itemName}</td>
+                  <td className="md:text-sm lg:text-lg">{item.subCategory}</td>
+                  <td className="md:text-sm lg:text-lg">{item.price}</td>
+                  <td className="md:text-sm lg:text-lg">{item.stockStatus}</td>
+                  <td className="md:text-sm lg:text-lg"><Link to={`/art-craft/${item._id}`} className="btn btn-link">View Details</Link></td>
                 </tr>)
               }
             </tbody>
