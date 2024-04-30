@@ -86,6 +86,7 @@ const Navbar = () => {
               </div>
               <ReactTooltip
                 id="my-tooltip-1"
+                className='z-50'
                 place="bottom"
                 content={user.displayName || user.email} 
               />
