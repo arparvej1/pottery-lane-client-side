@@ -4,9 +4,10 @@ import { Link, useLoaderData } from "react-router-dom";
 import MyArtCraftListCard from "./MyArtCraftListCard";
 import { Helmet } from "react-helmet-async";
 import { IoIosArrowDown } from "react-icons/io";
+import { ToastContainer } from "react-toastify";
 
 const MyArtCraftList = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loginCheck } = useContext(AuthContext);
   const items = useLoaderData();
   const [myItems, setMyItems] = useState([]);
 
@@ -25,6 +26,11 @@ const MyArtCraftList = () => {
     }
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    loginCheck();
+  }, []);
+
   return (
     <div>
       <Helmet>
@@ -42,8 +48,6 @@ const MyArtCraftList = () => {
             <li><Link onClick={() => handleFilter('No')}>No</Link></li>
           </ul>
         </div>
-
-
       </div>
       <div className="max-w-5xl mx-auto">
         {
@@ -52,6 +56,7 @@ const MyArtCraftList = () => {
           ></MyArtCraftListCard>)
         }
       </div>
+      <ToastContainer />
     </div>
   );
 };

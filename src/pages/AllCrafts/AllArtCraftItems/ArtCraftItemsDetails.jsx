@@ -1,11 +1,20 @@
+import { useContext, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
+import { AuthContext } from "../../../provider/AuthProvider";
+import { ToastContainer } from "react-toastify";
 
 const ArtCraftItemsDetails = () => {
   const items = useLoaderData();
   const { itemId } = useParams();
   const item = items.find(i => i._id === itemId);
   const { itemName, photo, subCategory, price, processingTime, rating, shortDescription, customization, stockStatus, userName, userEmail } = item;
+  const { loginCheck } = useContext(AuthContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    loginCheck();
+  }, []);
 
   return (
     <div>
@@ -67,6 +76,7 @@ const ArtCraftItemsDetails = () => {
         </div>
         {/* ------------ End ------------- */}
       </div>
+      <ToastContainer />
     </div>
   );
 };

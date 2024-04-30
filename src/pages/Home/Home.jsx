@@ -10,9 +10,10 @@ import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import AllArtCraftItemsCard from "../AllCrafts/AllArtCraftItems/AllArtCraftItemsCard";
 import AllCategoryCard from "../AllCrafts/AllCategory/AllCategoryCard";
+import { ToastContainer } from "react-toastify";
 
 const Home = () => {
-  const { apiURL } = useContext(AuthContext);
+  const { apiURL, loginCheck } = useContext(AuthContext);
   const [items, setItems] = useState([]);
   // const subCategory = [...new Set(items.map(val => val.subCategory))]
   const [categoryList, setCategoryList] = useState([]);
@@ -30,7 +31,12 @@ const Home = () => {
         setCategoryList(data)
       })
 
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    loginCheck();
+  }, []);
 
   return (
     <>
@@ -121,6 +127,7 @@ const Home = () => {
         </div>
       </div>
       {/* ------------- subcategory start --------------- */}
+      <ToastContainer />
     </>
   );
 };

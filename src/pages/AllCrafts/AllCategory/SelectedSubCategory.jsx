@@ -1,17 +1,26 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AllArtCraftItemsCard from "../AllArtCraftItems/AllArtCraftItemsCard";
+import { AuthContext } from "../../../provider/AuthProvider";
+import { ToastContainer } from "react-toastify";
 
 const SelectedSubCategory = () => {
   const items = useLoaderData();
   const { category } = useParams();
   const [categoryItems, setCategoryItems] = useState([]);
+  const { loginCheck } = useContext(AuthContext);
 
   useEffect(() => {
     const filtered = items.filter(item => item.subCategory.includes(category));
     setCategoryItems(filtered);
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    loginCheck();
+  }, []);
+
   return (
     <div>
       <Helmet>
@@ -26,6 +35,7 @@ const SelectedSubCategory = () => {
           ></AllArtCraftItemsCard>)
         }
       </div>
+      <ToastContainer />
     </div>
   );
 };

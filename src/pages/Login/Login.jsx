@@ -45,7 +45,6 @@ const Login = () => {
     signInUser(email, password)
       .then(result => {
         console.log(result.user.email);
-        toast.success('Successfully Login!');
         console.log('Successfully Login!');
         e.target.reset();
         setLoginFailedMsg('');
@@ -90,7 +89,6 @@ const Login = () => {
       <Helmet>
         <title> Login | PotteryLane </title>
       </Helmet>
-
       <div className='flex flex-col md:flex-row max-w-7xl mx-auto mt-8'>
         <div className='hidden md:block'>
           {womanLottie()}

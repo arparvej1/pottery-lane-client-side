@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const AddCraftItems = () => {
-  const { user, apiURL } = useContext(AuthContext);
+  const { user, apiURL, loginCheck } = useContext(AuthContext);
   const [categoryList, setCategoryList] = useState([]);
 
   useEffect(() => {
@@ -87,6 +87,11 @@ const AddCraftItems = () => {
       })
     // --------- send server end -----
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    loginCheck();
+  }, []);
 
   return (
     <div>

@@ -37,7 +37,6 @@ const MyArtCraftListCard = ({ item, myItems, setMyItems }) => {
               setMyItems(remaining);
             }
           })
-
       }
     })
   }

@@ -13,7 +13,11 @@ const AllArtCraftItems = () => {
       .then(data => {
         setItems(data)
       })
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>

@@ -11,7 +11,7 @@ const UpdateCraftItems = () => {
   const { itemId } = useParams();
   const item = items.find(i => i._id === itemId);
   const { _id, itemName, photo, subCategory, price, processingTime, rating, shortDescription, customization, stockStatus } = item;
-  const { user, apiURL } = useContext(AuthContext);
+  const { user, apiURL, loginCheck } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [categoryList, setCategoryList] = useState([]);
@@ -61,6 +61,11 @@ const UpdateCraftItems = () => {
       })
     // --------- send server end -----
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    loginCheck();
+  }, []);
 
   return (
     <div>

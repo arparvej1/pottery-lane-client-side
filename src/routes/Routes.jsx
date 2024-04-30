@@ -76,11 +76,11 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <PrivateRoutes><Profile></Profile></PrivateRoutes>
-      },
-      {
-        path: '/update-profile',
-        element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>
       }
+      // {
+      //   path: '/update-profile',
+      //   element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>
+      // }
     ]
   }
 ]);
