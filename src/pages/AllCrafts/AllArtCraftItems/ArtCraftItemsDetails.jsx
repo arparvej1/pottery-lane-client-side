@@ -1,20 +1,51 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const ArtCraftItemsDetails = () => {
   const items = useLoaderData();
+  const { user, loginCheck, apiURL } = useContext(AuthContext);
   const { itemId } = useParams();
   const item = items.find(i => i._id === itemId);
   const { itemName, photo, subCategory, price, processingTime, rating, shortDescription, customization, stockStatus, userName, userEmail } = item;
-  const { loginCheck } = useContext(AuthContext);
+  // const [review, setReview] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     loginCheck();
   }, []);
+
+  // const handleAddReview = (e) => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   const reviewText = form.reviewText.value;
+  //   const newReview = { reviewText, reviewerUid: user.uid, reviewerName: user.displayName, reviewerPhoto: user.photoURL, itemPhoto: photo };
+  //   console.log(newReview);
+  //   // --------- send server start -----
+  //   fetch(`${apiURL}/review`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     },
+  //     body: JSON.stringify(newReview)
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log(data);
+  //       if (data.acknowledged) {
+  //         toast.success('Successfully Add Review!')
+  //       }
+  //       form.reset();
+  //       fetch(`${apiURL}/category`)
+  //         .then(res => res.json())
+  //         .then(data => {
+  //           setReview(data)
+  //         })
+  //     })
+  //   // --------- send server end -----
+  // }
 
   return (
     <div>
@@ -76,6 +107,25 @@ const ArtCraftItemsDetails = () => {
         </div>
         {/* ------------ End ------------- */}
       </div>
+      {/* --------- Review Start ------------ */}
+      {/* <div>
+        <form
+          onSubmit={handleAddReview}
+          className="flex flex-col gap-5">
+          <div className="grid grid-cols-1 gap-5">
+            <label className="flex flex-col gap-1 w-full">
+              <span>Your Review</span>
+              <textarea name="reviewText" placeholder="Write your review here" className="textarea textarea-bordered h-24 w-full" required ></textarea>
+            </label>
+          </div>
+          <div>
+            <label className="flex gap-1">
+              <input type="submit" value="Add Review" className="btn bg-secondary text-secondary-content" />
+            </label>
+          </div>
+        </form>
+      </div> */}
+      {/* --------- Review End ------------ */}
       <ToastContainer />
     </div>
   );

@@ -11,6 +11,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import AllArtCraftItemsCard from "../AllCrafts/AllArtCraftItems/AllArtCraftItemsCard";
 import AllCategoryCard from "../AllCrafts/AllCategory/AllCategoryCard";
 import { ToastContainer } from "react-toastify";
+import './home.css';
 
 const Home = () => {
   const { apiURL, loginCheck } = useContext(AuthContext);
@@ -18,6 +19,8 @@ const Home = () => {
   // const subCategory = [...new Set(items.map(val => val.subCategory))]
   const [categoryList, setCategoryList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loading2, setLoading2] = useState(true);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     fetch(`${apiURL}/art-craft`)
@@ -31,6 +34,7 @@ const Home = () => {
       .then(res => res.json())
       .then(data => {
         setCategoryList(data)
+        setLoading2(false);
       })
 
   }, []);
@@ -38,6 +42,17 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     loginCheck();
+  }, []);
+
+  useEffect(() => {
+    fetch(`${apiURL}/review`)
+      .then(res => res.json())
+      .then(data => {
+        setReviews(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
   }, []);
 
   return (
@@ -132,9 +147,48 @@ const Home = () => {
               ></AllCategoryCard>)
             }
           </div>
+          {
+            loading2 &&
+            <div className="flex justify-center">
+              <span className="loading loading-spinner loading-lg"></span>
+            </div>
+          }
         </div>
       </div>
       {/* ------------- subcategory start --------------- */}
+      {/* ---------- slider review start ------------ */}
+      <div className='my-6 md:my-10'>
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          loop={true}
+          modules={[Autoplay, Pagination]}
+          className="mySwiper">
+          {
+            reviews.map((review, idx) => (
+              <SwiperSlide key={idx} >
+                <div className={`w-full flex flex-col gap-3 justify-center items-center pb-6`}>
+                  <div className='border-2 rounded-full'>
+                    <img className="w-32 h-32 rounded-full p-2" src={review.reviewerPhoto} />
+                  </div>
+                  <p className='w-10/12 md:w-8/12 text-xl md:text-2xl courgette-regular text-center'>
+                    {review.reviewText}
+                  </p>
+                  <div className="divider md:w-3/12 mx-auto">{review.reviewerName}</div>
+                </div>
+              </SwiperSlide>
+            ))
+          }
+        </Swiper>
+      </div>
+      {/* ---------- slider review End ------------ */}
       <ToastContainer />
     </>
   );

@@ -17,6 +17,7 @@ const Footer = () => {
               Craftville, Ceramica
               Artland, Potteryland
             </p>
+            <p>Phone: 01407067103</p>
           </div>
           <div className="flex flex-col gap-2 md:col-span-2">
             <p className="font-semibold">Useful Links</p>
